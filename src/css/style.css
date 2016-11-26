@@ -1,0 +1,45 @@
+.btn {
+	margin-bottom: 10px;
+}
+
+#section-card-display {
+	display: none;
+}
+
+#button-restart {
+	display: none;
+}
+
+#button-draw {
+	margin-right: 23px;
+}
+
+#card-output {
+	border: 1px solid;
+	width: 100%;
+	min-height: 450px;
+	max-height: 30vw;
+	overflow-y: scroll;
+
+}
+
+.output-card {
+	color: #000;
+	font-weight: bold;
+	background: #fffee5;
+}
+
+.output-info {
+	color: #000;
+	font-style: italic;
+}
+
+.output-card-visited {
+	color: #222;
+	font-weight: normal;
+	background: inherit;
+}
+
+.output-card-hidden {
+	visibility: hidden;
+}

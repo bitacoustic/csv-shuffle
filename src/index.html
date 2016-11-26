@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>csv-shuffle</title>
-
-    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,11 +16,43 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <h1>csv-shuffle</h1>
+        </div>
+      </div>
+    </nav>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <div class="container">   
+      <div class="row">
+        <div class="col-md-6">
+          <div id="section-load-deck">
+            <input class="btn btn-link" type="file" id="file-input" />
+            <input class="btn btn-default" type="button" id="button-file-load" value="Load" />
+          </div>       
+        </div> <!-- / col-md-6 -->
+        <div class="col-md-6">
+          <div id="section-card-display">
+            <input class="btn btn-default" type="button" id="button-shuffle" value="Shuffle" />
+            <input class="btn btn-default" type="button" id="button-restart" value="Restart" />
+            <input class="btn btn-default" type="button" id="button-stats" value="Stats" />
+            <br/>
+            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" />
+            <input class="btn btn-default" type="button" id="button-clear" value="Clear" />
+          </div>
+        </div> <!-- / col-md-6 -->
+      </div> <!-- / row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div id="card-output"></div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
