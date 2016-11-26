@@ -4,13 +4,15 @@ body {
 	font-family: 'Lato', 'Arial', sans-serif;
 }
 
+/* button area */
+
 .btn {
 	padding: 15px;
 	margin-bottom: 10px;
 }
 
-#section-card-display {
-	display: none;
+input[type=file] {
+	display: inline-block;
 }
 
 #button-restart {
@@ -23,20 +25,25 @@ body {
 	padding-right: 50px;
 }
 
+#button-shuffle {
+	border-width: 2px;
+}
+
+/* card output area */
+
+#section-button-display-1,
+#section-button-display-2 {
+	display: none;
+}
+
 #card-output {
 	border: 1px solid;
 	width: 100%;
 	min-height: 450px;
-	max-height: 30vw;
+	height: 30vw;
 	overflow-y: scroll;
 	margin-bottom: 10px;
 }
-
-/*#card-output::-webkit-scrollbar-track
-{
-	border: 1px solid #555;
-	background-color: #F5F5F5;
-}*/
 
 #card-output::-webkit-scrollbar
 {
@@ -75,4 +82,19 @@ body {
 
 .output-card-hidden {
 	visibility: hidden;
+}
+
+/* adjust properties on narrow width screens */
+
+@media screen and (max-width: 992px) {
+	.btn {
+		padding: 5px;
+	}
+	h1 {
+		margin: 2px 0 2px 0;
+		font-size: 1.5em;
+	}
+	.navbar {
+		min-height: 20px;
+	}
 }

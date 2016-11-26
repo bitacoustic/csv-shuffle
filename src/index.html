@@ -26,33 +26,30 @@
 
     <div class="container">   
       <div class="row">
-        <div class="col-md-6">
-          <div id="section-load-deck">
-            <input class="btn btn-link" type="file" id="file-input" />
-            <input class="btn btn-default" type="button" id="button-file-load" value="Load" />
-          </div>       
-        </div> <!-- / col-md-6 -->
-        <div class="col-md-6">
-          <div id="section-card-display">
-            <input class="btn btn-default" type="button" id="button-shuffle" value="Shuffle" />
-            <input class="btn btn-default" type="button" id="button-restart" value="Restart" />
-            <input class="btn btn-default" type="button" id="button-stats" value="Stats" />
-            <br/>
-            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" />
-            <input class="btn btn-default" type="button" id="button-clear" value="Clear" />
-          </div>
-        </div> <!-- / col-md-6 -->
+        <div class="col-md-12" id="section-load-deck">
+          <input class="btn btn-link" type="file" id="file-input" />
+        </div> 
       </div> <!-- / row -->
+      
       <div class="row">
         <div class="col-md-12">
           <div id="card-output"></div>
         </div>
       </div> <!-- / row -->
+      
       <div class="row">
-        <div class="col-md-12">
+          <div class="col-md-7" id="section-button-display-1">
+            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" />
+            <input class="btn btn-default" type="button" id="button-shuffle" value="Shuffle" />
+            <input class="btn btn-default" type="button" id="button-restart" value="Restart" />
+            <input class="btn btn-default" type="button" id="button-stats" value="Stats" />
+            <input class="btn btn-default" type="button" id="button-clear" value="Clear" />
+          </div>
+        <div class="col-md-5" id="section-button-display-2" style="text-align: right;">
           <input class="btn btn-default" type="button" id="button-create-log" value="Create Log" />
         </div> 
       </div> <!-- / row -->
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
