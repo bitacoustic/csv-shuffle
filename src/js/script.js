@@ -73,6 +73,14 @@ $(document).ready(function() {
     $('#card-output').empty();
   });
 
+  $('#button-create-log').click( function () {
+    console.log("Clicked create log button");
+    // newWindow = window.open();
+    newWindow = window.open('', 'csv-shuffle log', 'width = 500, height = 500')
+    newWindowContent = $('#card-output').html();
+    $(newWindow.document.body).html(newWindowContent);
+  });  
+
 }) // end document ready
 
 /* helpers */
