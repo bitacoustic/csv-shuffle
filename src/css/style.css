@@ -4,6 +4,12 @@ body {
 	font-family: 'Lato', 'Arial', sans-serif;
 }
 
+.navbar-brand {
+	font-size: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 /* button area */
 
 .btn {
@@ -15,18 +21,32 @@ input[type=file] {
 	display: inline-block;
 }
 
+input[type=checkbox] {
+	position: relative;
+	top: -2px;
+}
+
+.checkbox-label {
+	position: relative;
+	top: -3px;
+}
+
 #button-restart {
 	display: none;
 }
 
 #button-draw {
-	margin-right: 23px;
 	padding-left: 50px;
 	padding-right: 50px;
 }
 
-#button-shuffle {
-	border-width: 2px;
+.button-shuffle-highlight {
+	border: 2px solid #286090;	
+}
+
+.spacer {
+	margin-left: 25px;
+	margin-right: 25px;
 }
 
 /* card output area */
@@ -36,8 +56,12 @@ input[type=file] {
 	display: none;
 }
 
+.text-align-right {
+	text-align: right;
+}
+
 #card-output {
-	border: 1px solid;
+	/*border: 1px solid;*/
 	width: 100%;
 	min-height: 450px;
 	height: 30vw;
@@ -54,6 +78,10 @@ input[type=file] {
 #card-output::-webkit-scrollbar-thumb
 {
 	background-color: #286090;	
+}
+
+.well {
+	padding: 0;
 }
 
 .output-card,
@@ -84,17 +112,42 @@ input[type=file] {
 	visibility: hidden;
 }
 
-/* adjust properties on narrow width screens */
+img.github-logo {
+	width: 30px;
+	position: absolute;
+	height: 30px;
+	opacity: 0.5;
+	margin-top: -5px;
+	right: 5px;
+}
 
-@media screen and (max-width: 992px) {
+a.github-logo:focus,
+a.github-logo:hover {
+	background-color: transparent !important;
+}
+
+/* adjust properties per screen width */
+
+@media screen and (max-width: 768px) {
 	.btn {
 		padding: 5px;
 	}
-	h1 {
-		margin: 2px 0 2px 0;
-		font-size: 1.5em;
+	ul.nav {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 270px) {
+	.navbar-brand {
+		font-size: 18px;
 	}
 	.navbar {
 		min-height: 20px;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.navbar-brand {
+		padding-left: 0;
 	}
 }

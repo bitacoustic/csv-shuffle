@@ -1,35 +1,48 @@
+/* global variables */
+
 var cards = [];
 var pos = 0;
 var reachedEnd = false;
+var hasFirstRowLabels = false;
+var labels = [];
 
 $(document).ready(function() {
-  
-  /* change file input listener */
 
-  $('#file-input').on('change', function () {
+  /* handle button clicks */
+
+  $('#button-load-file').click( function () {
     console.log("Changed file input");
     if (! window.FileReader) {
       return alert( 'FileReader API is not supported by your browser.' );
     }
     var $i = $('#file-input'),
     input = $i[0];
+
+    hasFirstRowLabels = $('#checkbox-1st-row-labels').is(':checked');
+    console.log("Has first row labels: " + hasFirstRowLabels);
     
     if (input.files && input.files[0]) {
       file = input.files[0]; // The file
       fr = new FileReader(); // FileReader instance
       fr.readAsText(file);
+      
       fr.onload = function () {
         cards = $.csv.toArrays(fr.result);
+        if (hasFirstRowLabels) {
+          labels = cards.splice(0, 1); // pop first element
+          console.log(labels);
+        }
         console.log(cards);
+        pos = 0;
+        reachedEnd = false;
         $('[id^=section-button-display]').css('display','initial');
+        $('#button-shuffle').addClass('button-shuffle-highlight');
         $('#card-output').prepend("<p class='output-info'>Loaded deck '" + escape(file.name) + "' in default order</p>");
       };
     } else {
       alert( "No file to read. If you've chosen a file, your browser may not be supported." )
     }
   }); 
-
-  /* handle button clicks */
 
   $('#button-shuffle').click( function () {
     console.log("Clicked shuffle button");
@@ -61,7 +74,24 @@ $(document).ready(function() {
     if (!reachedEnd) {
       card = drawCard();
       console.log(card);
-      $('#card-output').prepend("<p id='card-at-pos-" + pos + "' class='output-card'>" + card + "</p>");
+
+      if (hasFirstRowLabels) {
+        cardText = "";
+        for (i = 0; i < card.length; i++) {
+          if (i < labels[0].length) {
+            cardText += "<strong>" + labels[0][i] + "</strong>: " + card[i] + "<br/>";
+          }
+          else {
+            cardText += card[i] + "<br/>";
+          }  
+        }
+        
+        console.log(cardText);
+        $('#card-output').prepend("<p id='card-at-pos-" + pos + "' class='output-card'>"
+          + cardText + "</p>");
+      } else {
+        $('#card-output').prepend("<p id='card-at-pos-" + pos + "' class='output-card'>" + card + "</p>");
+      }
       
       if (pos > 0) {
         previousCard = '#card-at-pos-' + (pos-1);
@@ -72,7 +102,7 @@ $(document).ready(function() {
       console.log("Reached end of deck");
       $('#button-draw').css('visibility','hidden');
     }
-  });
+  }); // end button-draw
 
   $('#button-clear').click( function () {
     console.log("Clicked clear button");
@@ -93,6 +123,7 @@ function checkReachedEnd() {
   if (pos >= cards.length) {
     reachedEnd = true;
     $('#card-output').prepend("<p class='output-info'>Reached end of deck - shuffle or restart</p>");
+    $('#button-shuffle').addClass('button-shuffle-highlight');
   }
 }
 
@@ -114,5 +145,6 @@ function shuffle(array) {
 
     reachedEnd = false;
     pos = 0;
+    $('#button-shuffle').removeClass('button-shuffle-highlight');
     return array;  
 };

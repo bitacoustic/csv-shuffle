@@ -16,41 +16,60 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary">
+    <header class="navbar navbar-dark bg-primary">
       <div class="container">
         <div class="navbar-header">
-          <h1>csv-shuffle</h1>
+          <a class="navbar-left"><img src="img/cards.png"></a>
+          <div class="navbar-brand">csv-shuffle</div>
+          
         </div>
+        <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a target="_blank" class="github-logo" href="https://github.com/bitacoustic/csv-shuffle" title="Open the project's GitHub repository in a new tab.">
+            <img class="github-logo" src="img/github.svg"/>
+          </a>
+        </li>
+        </ul>
       </div>
-    </nav>
+    </header>
 
-    <div class="container">   
-      <div class="row">
-        <div class="col-md-12" id="section-load-deck">
-          <input class="btn btn-link" type="file" id="file-input" />
-        </div> 
+    <article class="container">   
+      <div class="row" id="section-load-deck">
+        <div class="col-md-4">
+          <input class="btn btn-link" type="file" id="file-input" title="Choose a CSV file. Press the load button after checking appropriate options." />
+        </div>
+        <div class="col-md-8">
+          <a class="btn btn-link" href="example-files" target="_blank" title="Open a list of example CSV files in a new tab. Download them, then load them here.">Example Files</a>
+            <input type="checkbox" id="checkbox-1st-row-labels" title="Check if the first row of the CSV file contains column labels."> <span class="checkbox-label">First row has column labels</span></input>
+          <span class="spacer"/>
+          <input class="btn btn-default" type="button" id="button-load-file" value="Load" title="Load the chosen CSV file." />
+        </div>
       </div> <!-- / row -->
       
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 well">
           <div id="card-output"></div>
         </div>
       </div> <!-- / row -->
       
       <div class="row">
           <div class="col-md-7" id="section-button-display-1">
-            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" />
-            <input class="btn btn-default" type="button" id="button-shuffle" value="Shuffle" />
-            <input class="btn btn-default" type="button" id="button-restart" value="Restart" />
-            <input class="btn btn-default" type="button" id="button-stats" value="Stats" />
-            <input class="btn btn-default" type="button" id="button-clear" value="Clear" />
+            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" title="Draw the next card in the pile."/>
+            <span class="spacer"/>
+            <input class="btn btn-default" type="button" id="button-shuffle" class="button-shuffle-highlight" value="Shuffle" title="Return any drawn cards to the pile and reshuffle." />
+            <input class="btn btn-default" type="button" id="button-restart" value="Restart" title="Return drawn cards to the pile. The current shuffle order is maintained." />
+            <input class="btn btn-default" type="button" id="button-stats" value="Stats" title="View how many cards are in the pile and how many have been drawn so far."/>
+            <input class="btn btn-default" type="button" id="button-clear" value="Clear" title="Clear any output. This is useful if, say, you are playing a multiplayer game and don't want to reveal previously drawn cards."/>
           </div>
-        <div class="col-md-5" id="section-button-display-2" style="text-align: right;">
-          <input class="btn btn-default" type="button" id="button-create-log" value="Create Log" />
+        <div class="col-md-5 text-align-right" id="section-button-display-2">
+          <input class="btn btn-default" type="button" id="button-create-log" value="Create Log" title="Display the contents of the output area in a new window. Copy and paste this to another document as necessary."/>
         </div> 
       </div> <!-- / row -->
+    </article>
 
-    </div>
+    <footer class="container">
+
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
