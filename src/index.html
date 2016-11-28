@@ -7,6 +7,13 @@
     <title>csv-shuffle</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <!--Favicons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="img/favicons/manifest.json">
+    <link rel="mask-icon" href="/img/faviconssafari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,31 +52,30 @@
           <input class="btn btn-default" type="button" id="button-load-file" value="Load" title="Load the chosen CSV file." />
         </div>
       </div> <!-- / row -->
-      
+      <div class="row">
+        <div class="col-md-12" id="section-button-display-2">
+          <input class="btn btn-default" type="button" id="button-choose-file" value="&#9650; File" title="Choose another CSV file."/>
+          <input class="btn btn-default" type="button" id="button-create-log" value="Create Log" title="Display the contents of the output area in a new window. Copy and paste this to another document as necessary."/>
+        </div> 
+      </div> <!-- / row -->
+
       <div class="row">
         <div class="col-md-12 well">
           <div id="card-output"></div>
         </div>
       </div> <!-- / row -->
-      
+
       <div class="row">
-          <div class="col-md-7" id="section-button-display-1">
-            <input class="btn btn-primary" type="button" id="button-draw" value="Draw" title="Draw the next card in the pile."/>
-            <span class="spacer"/>
-            <input class="btn btn-default" type="button" id="button-shuffle" class="button-shuffle-highlight" value="Shuffle" title="Return any drawn cards to the pile and reshuffle." />
-            <input class="btn btn-default" type="button" id="button-restart" value="Restart" title="Return drawn cards to the pile. The current shuffle order is maintained." />
-            <input class="btn btn-default" type="button" id="button-stats" value="Stats" title="View how many cards are in the pile and how many have been drawn so far."/>
-            <input class="btn btn-default" type="button" id="button-clear" value="Clear" title="Clear any output. This is useful if, say, you are playing a multiplayer game and don't want to reveal previously drawn cards."/>
-          </div>
-        <div class="col-md-5 text-align-right" id="section-button-display-2">
-          <input class="btn btn-default" type="button" id="button-create-log" value="Create Log" title="Display the contents of the output area in a new window. Copy and paste this to another document as necessary."/>
-        </div> 
+        <div class="col-md-12" id="section-button-display-1">
+          <input class="btn btn-primary" type="button" id="button-draw" value="Draw" title="Draw the next card in the pile."/>
+          <span class="spacer"/>
+          <input class="btn btn-default" type="button" id="button-shuffle" class="button-shuffle-highlight" value="Shuffle" title="Return any drawn cards to the pile and reshuffle." />
+          <input class="btn btn-default" type="button" id="button-restart" value="Restart" title="Return drawn cards to the pile. The current shuffle order is maintained." />
+          <input class="btn btn-default" type="button" id="button-stats" value="Stats" title="View how many cards are in the pile and how many have been drawn so far."/>
+          <input class="btn btn-default" type="button" id="button-clear" value="Clear" title="Clear any output. This is useful if, say, you are playing a multiplayer game and don't want to reveal previously drawn cards."/>
+        </div>
       </div> <!-- / row -->
     </article>
-
-    <footer class="container">
-
-    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

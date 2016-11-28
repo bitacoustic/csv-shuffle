@@ -62,9 +62,8 @@ input[type=checkbox] {
 
 #card-output {
 	/*border: 1px solid;*/
+	height: 450px;
 	width: 100%;
-	min-height: 450px;
-	height: 30vw;
 	overflow-y: scroll;
 	margin-bottom: 10px;
 }
@@ -126,12 +125,17 @@ a.github-logo:hover {
 	background-color: transparent !important;
 }
 
-/* adjust properties per screen width */
+/* adjust properties per screen width and height */
 
 @media screen and (max-width: 768px) {
 	.btn {
 		padding: 5px;
 	}
+
+	#button-draw {
+		padding: 5px;
+	}
+
 	ul.nav {
 		display: none;
 	}
@@ -149,5 +153,28 @@ a.github-logo:hover {
 @media screen and (min-width: 769px) {
 	.navbar-brand {
 		padding-left: 0;
+	}
+}
+
+@media screen and (max-height: 570px) {	
+	.btn {
+		font-size: 12px;
+	}
+
+	#card-output {
+		height: 65vh;
+		font-size: 10px;
+	}
+
+	.spacer {
+		margin-left: 12px;
+		margin-right: 12px;
+	}
+
+}
+
+@media screen and (max-height: 570px) {	
+	#card-output {
+		height: 50vh;
 	}
 }

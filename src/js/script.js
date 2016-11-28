@@ -35,7 +35,9 @@ $(document).ready(function() {
         console.log(cards);
         pos = 0;
         reachedEnd = false;
+        $('#section-load-deck').css('display','none');
         $('[id^=section-button-display]').css('display','initial');
+        $('#button-choose-file').css('display','initial');
         $('#button-shuffle').addClass('button-shuffle-highlight');
         $('#card-output').prepend("<p class='output-info'>Loaded deck '" + escape(file.name) + "' in default order</p>");
       };
@@ -50,21 +52,6 @@ $(document).ready(function() {
     console.log(cards);
     $('#button-draw').css('display','initial').css('visibility','inherit');
     $('#card-output').prepend("<p class='output-info'>Shuffled deck</p>");
-  });
-
-  $('#button-restart').click( function () {
-    console.log("Clicked restart button");
-    $('#button-draw').css('display','initial');
-    $('#button-draw').css('visibility','inherit');
-    $('#card-output').prepend("<p class='output-info'>Restarted deck with current shuffle order</p>");
-    pos = 0;
-    reachedEnd = false;
-  });
-
-  $('#button-stats').click( function () {
-    console.log("Clicked stats button");
-    $('#card-output').prepend("<p class='output-info'>Deck has " + cards.length + " cards. You've drawn " 
-      + pos + (pos === 1 ? " card" : " cards") + " so far.</p>");
   });
 
   $('#button-draw').click( function () {
@@ -103,6 +90,26 @@ $(document).ready(function() {
       $('#button-draw').css('visibility','hidden');
     }
   }); // end button-draw
+
+  $('#button-restart').click( function () {
+    console.log("Clicked restart button");
+    $('#button-draw').css('display','initial').css('visibility','inherit');
+    $('#card-output').prepend("<p class='output-info'>Restarted deck with current shuffle order</p>");
+    pos = 0;
+    reachedEnd = false;
+  });
+
+  $('#button-stats').click( function () {
+    console.log("Clicked stats button");
+    $('#card-output').prepend("<p class='output-info'>Deck has " + cards.length + " cards. You've drawn " 
+      + pos + (pos === 1 ? " card" : " cards") + " so far.</p>");
+  });
+
+  $('#button-choose-file').click( function () {
+    console.log("Clicked choose file button");
+    $('#section-load-deck').css('display','initial');
+    $('#button-choose-file').css('display','none');
+  });
 
   $('#button-clear').click( function () {
     console.log("Clicked clear button");
