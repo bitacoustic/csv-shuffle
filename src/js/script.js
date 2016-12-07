@@ -5,6 +5,7 @@ var pos = 0;
 var reachedEnd = false;
 var hasFirstRowLabels = false;
 var labels = [];
+var previousCard = null;
 
 $(document).ready(function() {
 
@@ -40,6 +41,9 @@ $(document).ready(function() {
         $('#button-choose-file').css('display','initial');
         $('#button-shuffle').addClass('button-shuffle-highlight');
         $('#card-output').prepend("<p class='output-info'>Loaded deck '" + escape(file.name) + "' in default order</p>");
+        if (previousCard) {
+          $(previousCard).addClass('output-card-visited');
+        }
       };
     } else {
       alert( "No file to read. If you've chosen a file, your browser may not be supported." )
@@ -47,6 +51,9 @@ $(document).ready(function() {
   }); 
 
   $('#button-shuffle').click( function () {
+    if (previousCard) {
+      $(previousCard).addClass('output-card-visited');
+    }
     console.log("Clicked shuffle button");
     cards = shuffle(cards);
     console.log(cards);
@@ -84,6 +91,7 @@ $(document).ready(function() {
         previousCard = '#card-at-pos-' + (pos-1);
         $(previousCard).addClass('output-card-visited');
         $('#button-restart').css('display','initial');
+        previousCard = '#card-at-pos-' + (pos);
       }
     } else {
       console.log("Reached end of deck");
@@ -95,6 +103,9 @@ $(document).ready(function() {
     console.log("Clicked restart button");
     $('#button-draw').css('display','initial').css('visibility','inherit');
     $('#card-output').prepend("<p class='output-info'>Restarted deck with current shuffle order</p>");
+    if (previousCard) {
+      $(previousCard).addClass('output-card-visited');
+    }
     pos = 0;
     reachedEnd = false;
   });
